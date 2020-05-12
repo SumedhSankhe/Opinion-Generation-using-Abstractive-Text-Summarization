@@ -33,7 +33,8 @@ def make_data_dict(filenames, x,y):
     for f in tqdm(filenames):
         dat = cleantext(parsetext(x['reviews'],y[0], '%s' %f))
         data['review'].append(dat[0])
-        data['summaries'].append(dat[1])
+        if len(dat) == 2:
+            data['summaries'].append(dat[1])
     print('All files read successfully...')
     return data 
 
